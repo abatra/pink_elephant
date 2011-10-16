@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PinkElephant</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+  <title>Pink Elephant</title>
+    <%= csrf_meta_tag %>
+	<%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+	<%= stylesheet_link_tag 'blueprint/print', :media => 'print' %>
+	<%= stylesheet_link_tag 'custom', :media => 'screen' %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container">
+		<header>
+			<%= image_tag("logo.png", :alt => "Pink Elephant", :class => "round") %>
+			<nav class="round">
+				<ul>
+					<li><%= link_to "Home", root_path %></li>
+					<li><%= link_to "Help", help_path %></li>
+					<li><%= link_to "Sign in", '#' %></li>
+				<ul>
+			</nav>
+		</header>
+		<section class="round">
+			<%= yield %>
+		</section>
+		<footer>
+			<nav class="round">
+				<ul>
+					<li><%= link_to "About", about_path %></li>
+					<li><%= link_to "Contact", contact_path %></li>
+					<li><%= link_to "Blog", blog_path %></li>
+				</ul>
+			</nav>
+		</footer>
+	</div>
 </body>
 </html>

@@ -1,9 +1,13 @@
 PinkElephant::Application.routes.draw do
-  get "pages/home"
+  get "users/new"
 
-  get "pages/about"
+  match '/signup', :to => 'users#new'
+  match '/about', :to => 'pages#about'
+  match '/contact', :to => 'pages#contact'
+  match '/help', :to => 'pages#help'
+  match '/blog', :to => 'pages#blog'
 
-  get "pages/contact"
+  root :to => 'pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
